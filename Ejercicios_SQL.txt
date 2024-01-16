@@ -1,0 +1,93 @@
+
+# Lista descendente de cada tipo de auto
+SELECT 
+  make,
+  COUNT(*) AS tot
+FROM `proj1-409300.automobile_data.car_info`
+GROUP BY make ORDER BY tot DESC
+
+
+
+# maximo y minimo de una columna
+SELECT 
+  MIN(length) AS valMin,
+  MAX(length) AS valMax
+FROM `proj1-409300.automobile_data.car_info`
+
+
+
+# valores de puertas nulos
+SELECT 
+  num_of_doors,
+FROM `proj1-409300.automobile_data.car_info`
+WHERE
+  num_of_doors IS NULL;
+
+
+
+# valores de mazda y dodge sedan
+SELECT 
+  *
+FROM `proj1-409300.automobile_data.car_info`
+WHERE
+  #num_of_doors IS NULL;
+  body_style ="sedan" AND make ="dodge" OR make="mazda" 
+ORDER BY make
+
+
+
+# cambiar valores nulos a four
+UPDATE automobile_data.car_info 
+SET num_of_doors = "four" 
+WHERE make = "dodge" AND fuel_type = "gas" AND body_style = "sedan";
+
+
+
+# sustituir 
+UPDATE cars.car_info 
+SET num_of_cylinders = "two" 
+WHERE num_of_cylinders = "tow";
+
+
+
+# sustituir 
+UPDATE
+  automobile_data.car_info
+SET
+  compression_ratio=23
+WHERE 
+	caracteristicas
+
+
+# Eliminar una fila
+DELETE cars.car_info
+WHERE compression_ratio = 70;
+
+
+
+# Longitud de caracteres
+/*SELECT
+  drive_wheels,
+  LENGTH(drive_wheels) AS ncara
+FROM
+  automobile_data.car_info
+ORDER BY ncara DESC
+*/
+# DIstintoz
+SELECT
+  DISTINCT TRIM(drive_wheels),
+FROM
+  automobile_data.car_info
+
+
+
+#typecast a float
+SELECT CAST(purchase_price AS FLOAT64)
+FROM `proj1-409300.customer_lauren.customer_purchase`
+ORDER BY CAST(purchase_price AS FLOAT64) DESC
+
+
+
+
+
+
