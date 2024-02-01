@@ -88,6 +88,55 @@ ORDER BY CAST(purchase_price AS FLOAT64) DESC
 
 
 
+#Contar en brasil
+SELECT 
+	COUNT(Country) as NC
+FROM
+	WORLD
+WHERE
+	Country="Brazil"
+
+
+
+#Ordenar el genero
+SELECT 
+  *
+FROM `proj1-409300.movie_data.movies`
+ORDER BY
+  G__nero ASC
+
+
+
+#Genero comedia mas antiguas
+SELECT 
+  *
+FROM `proj1-409300.movie_data.movies`
+WHERE
+  G__nero="Comedia"
+ORDER BY
+  Fecha_de_estreno DESC
+
+
+
+#Genero y mas de 200M
+SELECT 
+  *
+FROM `proj1-409300.movie_data.movies`
+WHERE
+  G__nero="Comedia"
+ORDER BY
+  Fecha_de_estreno DESC
+
+
+
+# canciones con Chris Cornell en orden descendente 
+SELECT * 
+FROM Tracks
+WHERE 
+Composer="Chris Cornell"
+ORDER BY
+GenreId DESC
+
 
 
 
