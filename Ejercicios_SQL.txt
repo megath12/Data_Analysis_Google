@@ -194,5 +194,58 @@ ON edu.country_code = summary.country_code
 
 
 
+SELECT  
+  orders.*,
+  warehouse.alias_deposito,
+  warehouse.estado
+FROM `proj1-409300.warehouse_orders.orders` AS orders
+JOIN
+  `proj1-409300.warehouse_orders.warehouse` AS warehouse
+ON  orders.id_deposito = warehouse.id_deposito
+
+
+
+
+
+
+
+
+SELECT  
+  COUNT(DISTINCT warehouse.estado) AS num_estado
+FROM `proj1-409300.warehouse_orders.orders` AS orders
+JOIN
+  `proj1-409300.warehouse_orders.warehouse` AS warehouse
+ON  orders.id_deposito = warehouse.id_deposito
+
+
+
+
+
+SELECT  
+warehouse.estado AS estado,
+  COUNT(DISTINCT id_pedido) AS num_orders
+FROM `proj1-409300.warehouse_orders.orders` AS orders
+JOIN
+  `proj1-409300.warehouse_orders.warehouse` AS warehouse
+ON  orders.id_deposito = warehouse.id_deposito
+GROUP BY
+  warehouse.estado;
+
+
+
+#ejemplo Subquery
+SELECT 
+  station_id,
+  num_bikes_available,
+  (SELECT 
+    AVG(num_bikes_available)
+    FROM `bigquery-public-data.new_york_citibike.citibike_stations` 
+  ) AS avg_bi_av
+FROM `bigquery-public-data.new_york_citibike.citibike_stations` 
+
+
+
+
+
 
 
