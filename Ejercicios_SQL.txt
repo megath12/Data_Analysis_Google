@@ -245,6 +245,71 @@ FROM `bigquery-public-data.new_york_citibike.citibike_stations`
 
 
 
+#columna procentaje
+SELECT 
+  Date,
+  Region,
+  Small_Bags,
+  Large_Bags,
+  XLarge_Bags,
+(Small_Bags*100)/Total_Bags AS Perc_SBags
+FROM `proj1-409300.aguaavocado.avocado` 
+WHERE
+  Total_Bags<>0
+
+
+
+
+#extraer dia, y contarlos
+SELECT  
+  EXTRACT(DAY FROM last_reported) AS day,
+  COUNT(*) AS nu
+FROM `bigquery-public-data.new_york_citibike.citibike_stations` 
+GROUP BY
+  day
+ORDER BY
+  day
+  
+
+
+
+
+#promedio de viajes en estaion con A
+SELECT  
+  station_name,
+  ridership_2016,
+  ridership_2017,
+  ridership_2018,
+  (ridership_2018+ridership_2017+ridership_2016)/3 AS avg_risdership
+FROM 
+  bigquery-public-data.new_york_subway.subway_ridership_2013_present
+WHERE
+  #station_name = 'Astor Pl'
+  station_name LIKE 'A%'
+
+
+
+
+
+#cantidad total vendida para cada ProductId agrupado por mes y año en que fue vendido: 
+SELECT 
+  EXTRACT(YEAR FROM date) AS Year, 
+  EXTRACT(MONTH FROM date) AS Month, 
+  ProductId, 
+  ROUND(MAX(UnitPrice),2) AS UnitPrice, 
+  SUM(Quantity) AS UnitsSold 
+FROM 
+  `proj1-409300.Empresa.sales`  
+GROUP BY 
+  Year, Month, ProductId 
+ORDER BY 
+  Year, Month, ProductId;
+
+
+
+
+
+
 
 
 
