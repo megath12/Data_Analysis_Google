@@ -1,0 +1,25 @@
+
+# install.packages("palmerpenguins")
+# library("palmerpenguins")
+# summary("palmerpenguins")
+
+View(penguins)
+
+#ggplot(data=penguins,aes(x=flipper_length_mm,y=body_mass_g))+geom_point(aes(color=species))
+
+
+
+ gds<-c(1,2,5,9,0,3,46,2)
+# crear un vector
+
+ gds[2]
+ gds[5]
+ typeof(gds)
+ length(gds)
+
+ asd<-list(1,2,3,"sdsdsd",TRUE)
+# crear una lista
+ str(asd)
+
+
+
