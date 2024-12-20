@@ -23,3 +23,24 @@ View(penguins)
 
 
 
+data("ToothGrowth")
+view(ToothGrowth)
+
+#opcion 1 multiple variables
+f_tg<-filter(ToothGrowth,dose==0.5)
+View(f_tg)
+arrange(f_tg,len)
+
+#opcion 2 nested
+arrange(filter(ToothGrowth,dose==0.5),len)
+
+#opcion 3 pipe operator
+filt_tg<- ToothGrowth %>%
+  filter(dose==0.5) %>%
+  arrange(len)
+
+#ejericio
+fig<- ToothGrowth %>% 
+  filter (dose==0.5) %>% 
+  group_by(supp) %>% 
+  summarize(mean_len=mean(len,na.rm=T),.group="drop")
