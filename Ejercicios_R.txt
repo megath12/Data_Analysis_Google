@@ -44,3 +44,68 @@ fig<- ToothGrowth %>%
   filter (dose==0.5) %>% 
   group_by(supp) %>% 
   summarize(mean_len=mean(len,na.rm=T),.group="drop")
+
+
+
+
+library(ggplot2)
+data("diamonds")
+View(diamonds)
+
+# first 6 rows
+head(diamonds)
+
+# high level infor
+str(diamonds)
+
+#name columns
+colnames(diamonds)
+
+library(tidyverse)
+
+#add a column to a dataframe
+mutate(diamonds, carat_2=carat*100)
+
+
+
+
+
+library(tidyverse)
+names <- c("abel", "beto", "carlos", "diana")
+age <- c(23,33 ,25 ,27 )
+people <- data.frame(names, age)
+head(people)
+str(people)
+glimpse(people)
+colnames(people)
+mutate(people, age_in_20 = age + 20)
+
+
+
+
+library(tidyverse)
+view(diamonds)
+as_tibble(diamonds)
+
+
+
+
+
+library(tidyverse)
+library(readr)
+#bookings_df <- read_csv(file.choose())
+gis_df <- read_csv("hotels.csv",locale = locale(encoding = "latin1"))
+ngis <- select(gis_df, `adr`, adults)
+#  sirve para seleccionar columnas específicas de un conjunto de datos, lo que permite trabajar solo con las columnas necesarias.
+mutate(new_df, total = `adr` / adults)
+
+
+
+
+
+
+
+
+
+
+
