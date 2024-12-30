@@ -176,4 +176,10 @@ penguins %>% filter(species=="Adelie") %>% drop_na()
 
 
 
+library(tidyverse)
+library(skimr)
+library(janitor)
+
+
+
 
