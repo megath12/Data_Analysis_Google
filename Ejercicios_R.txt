@@ -296,5 +296,59 @@ bias(act_sales,pred_sales)
 
 
 
+library(ggplot2)
+library(palmerpenguins)
+data(penguins)
+View(penguins)
+
+#option1
+ggplot(data = penguins) +geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+#option2
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) + geom_point()
+
+
+
+
+# AYUDA EN COMANDO
+?geom_point
+
+
+
+
+
+
+
+
+
+ 
+library(ggplot2)
+library(palmerpenguins)
+data(penguins)
+View(penguins)
+
+#agregar colores por especie
+ggplot(data = penguins) +geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g,color=species))
+
+# cmbiar forma de los marcadores por especie
+ggplot(data = penguins) +geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, shape=species))
+
+#color, forma y tamaño
+ggplot(data = penguins) +geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g,color=species, shape=species, size=species))
+
+#alpha transparencia 
+ggplot(data = penguins) +geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, alpha=species))
+
+#color
+ggplot(data = penguins) +geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g),color="purple")
+
+    
+
+
+
+
+
+
+
 
 
