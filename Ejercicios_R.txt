@@ -349,6 +349,40 @@ ggplot(data = penguins) +geom_point(mapping = aes(x = flipper_length_mm, y = bod
 
 
 
+library(ggplot2)
+library(palmerpenguins)
+data(penguins)
+View(penguins)
+
+
+# grafica smooth
+ggplot(data = penguins) +geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+# agregar un geom extra
+ggplot(data = penguins) +geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g)) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+# smooth para cada especie
+ggplot(data = penguins) +geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g, linetype = species))
+
+# usar geom_jitter (makes points easier to find)
+ggplot(data = penguins) +geom_jitter(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+
+# bar graphic edge
+ggplot(data = diamonds) +geom_bar(mapping = aes(x = cut, color=cut))
+
+# bar graphic fill color
+ggplot(data = diamonds) +geom_bar(mapping = aes(x = cut, fill=cut))
+
+# bar graphic fill color
+ggplot(data = diamonds) +geom_bar(mapping = aes(x = cut, fill=clarity))
+
+
+
+
+
+
+
+
 
 
 
