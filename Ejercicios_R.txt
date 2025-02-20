@@ -380,6 +380,75 @@ ggplot(data = diamonds) +geom_bar(mapping = aes(x = cut, fill=clarity))
 
 
 
+# FACETAS
+
+library(ggplot2)
+library(palmerpenguins)
+data(penguins)
+View(penguins)
+
+# separete plots show the relationship between them, focus on imortants of our data
+ggplot(data = penguins,aes(x = flipper_length_mm, y = body_mass_g))+geom_point(aes(colour = species))+facet_wrap(~species)
+
+ggplot(data=diamonds)+geom_bar(mapping=aes(x=color, fill=cut))+facet_wrap(~cut)
+
+# filas genero, columna especie, graficas
+ggplot(data=penguins)+geom_point(mapping=aes(x=flipper_length_mm, y=body_mass_g, color=species))+facet_grid(sex~species)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ejercicio
+# https://d3c33hcgiwev3.cloudfront.net/JQ3W1AY8Q0KN1tQGPONCXg_61f251fbb0a245e88f6fdeecad2cf2f1_Hands-On-Activity--Aesthetics-and-visualizations1_SPA.txt?Expires=1740182400&Signature=iADAvC9FpjTHe5CSjujLrHNBAPgQE6TdOZD27YT3lQbkcMr0kcH4DaY8LnH8Xl-gZeBbkC0HTTxq0srx8RPdPzF7opQYXxXRzem3RJl~mtqKK6hUi2WzGtJEtuW9hXx63LuVE59JZXYjdasYvetF6sIEzupMgRMQguGTGvHDFFY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A
+# https://d3c33hcgiwev3.cloudfront.net/E0B8xodsSNmAfMaHbLjZ2g_cc33250306694348adb464cf85868cf1_Hands-On-Activity--Aesthetics-and-visualizations3_SPA.txt?Expires=1740182400&Signature=GrJIg-qWTbdd4k2kQD0YASNV4EPdRAT-uLIfYKrSQ8phudLy7yJ2xnYb5du5H1rP1OWkHDzh6-5tZafIQQLabnNotGEESoYay9YZhCcKkim7Cd0NZzueiZegAV1B0LSSl03JAVAuFAE4RlVd9AtJEY-2JbOwPpOY8YxsOjFgHeA_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A
+ht<-read.csv("Hotel_bookings.csv", fileEncoding = "Latin1")
+View(ht)
+head(ht)
+colnames(ht)
+library(ggplot2)
+
+#¿quÃ© tipo de distribuciÃ³n tiene el nÃºmero mÃ¡s alto de reservas?
+ggplot(data=ht)+geom_bar(mapping=aes(x=distribution_channel))
+
+#el nÃºmero de reservas para cada tipo de distribuciÃ³n es diferente dependiendo de si se realizÃ³ un depÃ³sito o de a quÃ© mercado representan
+ggplot(data=ht)+geom_bar(mapping=aes(x=distribution_channel,fill=market_segment))
+
+ggplot(data=ht)+geom_bar(mapping=aes(x=distribution_channel,fill=deposit_type))
+
+
+#te pide que crees grÃ¡ficos separados para cada tipo de depÃ³sito y segmento de mercado para ayudarlo a comprender las diferencias con mayor claridad
+
+ggplot(data=ht)+geom_bar(mapping=aes(x=distribution_channel))+facet_wrap(~deposit_type)
+
+ggplot(data=ht)+geom_bar(mapping=aes(x=distribution_channel))+facet_wrap(~market_segment)
+
+ggplot(data=ht)+geom_bar(mapping=aes(x=distribution_channel))+facet_wrap(~deposit_type~market_segment)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
