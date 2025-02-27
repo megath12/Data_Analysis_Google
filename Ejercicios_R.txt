@@ -441,6 +441,38 @@ ggplot(data=ht)+geom_bar(mapping=aes(x=distribution_channel))+facet_wrap(~deposi
 
 
 
+# FILTROS
+
+ht<-read.csv("Hotel_bookings.csv", fileEncoding = "Latin1")
+View(ht)
+colnames(ht)
+library(ggplot2)
+
+ggplot(data = ht) + geom_bar(mapping = aes(x = hotel, fill = market_segment))
+
+# el eje y ('count' como opcion predeterminada)
+#'fill' a la variable 'market_segment' para generar secciones con cÃ³digos de color dentro de cada barra.  
+
+#es difÃ­cil comparar el tamaÃ±o de los segmentos de mercado en la parte superior de las barras. Lo que buscas es que tu interesada pueda comparar con claridad cada segmento
+
+#Decides usar la funciÃ³n facet_wrap() para crear un grÃ¡fico diferente para cada segmento del mercado.
+ggplot(data = ht) + geom_bar(mapping = aes(x = hotel))+facet_wrap(~market_segment) 
+
+library(tidyverse)
+# Usa la funciÃ³n `filter()` para crear un conjunto de datos que solo incluya los datos que quieres: 
+#
+onlineta_city_hotels <- filter(ht, (hotel=="City Hotel" & ht$market_segment=="Online TA"))
+
+#Puedes usar el operador de canalizaciÃ³n (%>%) para hacerlo en pasos! 
+onlineta_city_hotels_v2 <- ht %>%
+  filter(hotel=="City Hotel") %>%
+  filter(market_segment=="Online TA")
+
+
+
+#ggplot(data = onlineta_city_hotels) + geom_point(mapping = aes(x = lead_time, y = ni.os))
+
+#ggplot(data = ht) +  geom_point(mapping = aes(x = lead_time, y = ni.os))
 
 
 
@@ -449,9 +481,29 @@ ggplot(data=ht)+geom_bar(mapping=aes(x=distribution_channel))+facet_wrap(~deposi
 
 
 
+# LABEL & ANNOTATE
+
+library("ggplot2")
+library("palmerpenguins")
+
+pl<-ggplot(data=penguins)+geom_point(mapping=aes(x=flipper_length_mm, y=body_mass_g, color=species)) + 
+labs(title="pinguinos", subtitle="tonight", caption = "Dr. Kristen Gorman") + 
+annotate("text", x=220,y=3500, label="gentoos",color="purple", fontface="bold",size=5, angle=45)
+
+
+#save last plot
+ggsave("penguins.png")
 
 
 
+
+
+
+
+
+library(palmerpenguins)
+View(penguins)
+ggplot(data=penguins)+geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, color=species))
 
 
 
