@@ -507,3 +507,45 @@ ggplot(data=penguins)+geom_point(mapping = aes(x = flipper_length_mm, y = body_m
 
 
 
+
+
+
+
+
+---
+title: "pruebas"
+author: "Carlso"
+date: "2025-03-07"
+output: html_document
+---
+
+Buen día dobble espaci-salto   
+*Italica*  
+**Negrita**  
+
+# Titulo
+## subtitulo
+### consecutivamente
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer varius nulla sed justo tincidunt, at facilisis lectus dictum. Code et algorithmus sunt fundamenta moderni mundi digitalis. Nullam efficitur, sapien ac varius fermentum, justo lorem bibendum nisl, at malesuada ex magna nec sem. Syntax error? Non, sed vitae semper felis, ut cursus eros. Compilers et interpretes operantur in harmony ut efficaciter traducant instructiones humanas in linguam machinae. Sed ut perspiciatis unde omnis error debugging natus est. `los chocorroles (se ven grises y fierentes)`
+<http://www.google.com>  
+Lenguajes:
+
+* Matlab
+* Python
+* R  
+
+Mas informacion aqui [link](http://wikipedia.com)
+
+![Plot this way](https://cdn.pixabay.com/photo/2016/03/18/15/02/ufo-1265186_1280.jpg)
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+colnames(penguins)
+```
+
+
+
+
+
