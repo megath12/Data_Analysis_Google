@@ -2,16 +2,13 @@
 # install.packages("palmerpenguins")
 # library("palmerpenguins")
 # summary("palmerpenguins")
-
 View(penguins)
-
 #ggplot(data=penguins,aes(x=flipper_length_mm,y=body_mass_g))+geom_point(aes(color=species))
 
 
 
  gds<-c(1,2,5,9,0,3,46,2)
 # crear un vector
-
  gds[2]
  gds[5]
  typeof(gds)
@@ -546,6 +543,43 @@ colnames(penguins)
 ```
 
 
+
+
+
+
+# Examen modulo 7
+library(dplyr)
+
+choc<-read.csv("flavors_of_cacao.csv")
+colnames(choc)
+choc %>% 
+  rename(Brand= Company...Maker.if.known.)
+colnames(choc)
+choco<-rename(choc,Brand= Company...Maker.if.known.)
+colnames(choco)
+
+cho<-choco %>% 
+  select(Rating, Cocoa.Percent, Company.Location) 
+colnames(cho)
+head(cho)
+
+cho<-choco %>% 
+  select(Rating, Cocoa.Percent, Company.Location) %>% 
+  summarize(chomean=mean(Rating))
+View(cho)
+
+cho<-choco %>% 
+  select(Rating, Cocoa.Percent, Company.Location) 
+colnames(cho)
+View(cho)
+calif<-cho %>% 
+  filter(Rating>=3.75, Cocoa.Percent>80)
+View(calif)
+
+colnames(calif)
+library(dplyr)
+library(tidyverse)
+ggplot(data=calif)+geom_bar(mapping = aes(x=Company.Location, color=Company.Location))
 
 
 
